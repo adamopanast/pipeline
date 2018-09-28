@@ -1,0 +1,5 @@
+items:
+- name: "service1"
+  version: "latest"
+- name: "service2"
+  version: "latest"
