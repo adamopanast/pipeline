@@ -3,7 +3,7 @@ items:
 - kind: "BuildConfig"
   apiVersion: "v1"
   metadata:
-    name: "service-pipeline"
+    name: "master-pipeline"
   spec:
     source:
       type: "Git"
