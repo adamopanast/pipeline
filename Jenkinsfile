@@ -1,12 +1,23 @@
 #!groovy
 
 def datas
+def sprint
 
 node {
+    stage (' User Input') {
+      def userInput = input(
+      id: 'userInput', message: 'Let\'s promote?', parameters: [
+      [$class: 'TextParameterDefinition', defaultValue: 'master', description: 'Sprint Tag', name: 'Sprint'],
+      [$class: 'TextParameterDefinition', defaultValue: '', description: 'Comments', name: 'comments', isHidden: true]
+      ])
+     echo ("Input submited")
+     sprint = userInput['Sprint'] 
+     echo ("Sprint: ${sprint}")
+    }      
 
    stage('Read File') {
         echo "Reading File"
-        git 'https://github.com/Tses/pipeline.git'
+        git branch: sprint, url: 'https://github.com/Tses/pipeline.git'
         echo "Checked Out"
         datas = readYaml file: 'promotes2.yaml'
     }
