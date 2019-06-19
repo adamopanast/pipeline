@@ -3,7 +3,7 @@
 def datas
 def sprint
 
-node {
+node('maven') {
     stage (' User Input') {
       def userInput = input(
       id: 'userInput', message: 'Let\'s promote?', parameters: [
